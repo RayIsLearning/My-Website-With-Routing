@@ -3,7 +3,7 @@
         if (url === '/') {//HOME
             document.getElementById('content').innerHTML =`
             <div id="softwareButton" class="left">Software <button id="softwareButton">software</button><br>
-                <img src="bin.png" alt="Software" id="software">
+                <img src="./bin.png" alt="Software" id="software">
             </div>
 
             <div class="middle">Media / Social / Art<br><br><br>
