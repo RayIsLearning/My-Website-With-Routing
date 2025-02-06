@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="homestyle.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>About Ray</title>
+</head>
+<body>
+  
+<div class="grid-container">
+  <div class="header">
+    <canvas id="c"></canvas>
+  </div>
+  <!--
+  <div class="left">Check out my Github!<br><br><br><br><br>
+    <a href="https://github.com/RayIsLearning" target="_blank"><img src="/GitHub_Logo.png" alt="An example image"></a>
+    
+  </div>
+  -->
+  
+  <div class="left">
+    <a href="homepage.html" target="blank"><img src="/home.png"alt="Home Icon"></a>
+  </div>
+
+  <div class="middle">My Timeline<br>
+    <a href="timeline.html" target="_blank">
+        <img src="/hourglass.png" alt="An example image">
+    </a>
+  </div>  
+  <div class="right">Roll the dice! <br><br><br>
+    <img src="/dicegame.gif" alt="An example image">
+  </div>
+  
+  <div class="footer">
+    <a href="homepage.html" target="blank"><img src="/home.png"alt="An example image"></a>
+    <h3>All About Ray</h3>
+      <p>Jesus Saves &nbsp;</p>
+    <img src="spiritsmall.jpg">
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    
+    
+  </div>
+</div>
+</body>
+
+<!--webGL stuff below -->
+
+<script id="vs" type="notjs">
+  uniform mat4 u_viewProjection;
+  uniform vec3 u_lightWorldPos;
+  uniform mat4 u_viewInverse;
+  
+  attribute vec4 instanceColor;
+  attribute mat4 instanceWorld;
+  attribute vec4 position;
+  attribute vec3 normal;
+  
+  varying vec4 v_position;
+  varying vec2 v_texCoord;
+  varying vec3 v_normal;
+  varying vec3 v_surfaceToLight;
+  varying vec3 v_surfaceToView;
+  varying vec4 v_color;
+  
+  void main() {
+    v_color = instanceColor;
+    vec4 worldPosition = instanceWorld * position;
+    v_position = u_viewProjection * worldPosition;
+    v_normal = (instanceWorld * vec4(normal, 0)).xyz;
+    v_surfaceToLight = u_lightWorldPos - worldPosition.xyz;
+    v_surfaceToView = u_viewInverse[3].xyz - worldPosition.xyz;
+    gl_Position = v_position;
+  }
+    </script>
+    <script id="fs" type="notjs">
+  precision mediump float;
+  
+  varying vec4 v_position;
+  varying vec3 v_normal;
+  varying vec3 v_surfaceToLight;
+  varying vec3 v_surfaceToView;
+  varying vec4 v_color;
+  
+  uniform vec4 u_lightColor;
+  uniform vec4 u_ambient;
+  uniform vec4 u_specular;
+  uniform float u_shininess;
+  uniform float u_specularFactor;
+  
+  vec4 lit(float l ,float h, float m) {
+    return vec4(1.0,
+                max(l, 0.0),
+                (l > 0.0) ? pow(max(0.0, h), m) : 0.0,
+                1.0);
+  }
+  
+  void main() {
+    vec4 diffuseColor = v_color;
+    vec3 a_normal = normalize(v_normal);
+    vec3 surfaceToLight = normalize(v_surfaceToLight);
+    vec3 surfaceToView = normalize(v_surfaceToView);
+    vec3 halfVector = normalize(surfaceToLight + surfaceToView);
+    vec4 litR = lit(dot(a_normal, surfaceToLight),
+                      dot(a_normal, halfVector), u_shininess);
+    vec4 outColor = vec4((
+    u_lightColor * (diffuseColor * litR.y + diffuseColor * u_ambient +
+                  u_specular * litR.z * u_specularFactor)).rgb,
+        diffuseColor.a);
+    gl_FragColor = outColor;
+  }
+    </script>
+    <script type="module" src="/cube.js"></script>
+
+</html>
+
+
