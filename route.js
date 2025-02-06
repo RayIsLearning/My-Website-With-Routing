@@ -12,7 +12,7 @@
             </div> 
 
             <div id="aboutButton" class="right">About me <button id="aboutButton">About</button><br>
-                <img src="Xmas.jpg" alt="Pic of me">
+                <img src="./Xmas.jpg" alt="Pic of me">
             </div>
 
             <div class="footer">
@@ -20,7 +20,7 @@
                 <h3>Raymond Cooke Welcomes you!</h3>
                 <p>Jesus Saves &nbsp;</p>
                 <a href="https://usccb.cld.bz/Catechism-of-the-Catholic-Church/27/" target="_blank">
-                <img src="spiritbig.jpg" class="shake-on-hover" width="200" height="200">
+                <img src="./spiritbig.jpg" class="shake-on-hover" width="200" height="200">
                 </a>
             </div>
         `; 
@@ -28,26 +28,26 @@
         } else if (url === '/about') {//ABOUT ME
             document.getElementById('content').innerHTML =`
             <div class="left">Some Picture I took in 2015<br><br>
-                <img src="placehold.jpg" width="480" height="480">
+                <img src="./placehold.jpg" width="480" height="480">
             </div>
 
             <div class="middle">My Timeline<br>
                 <a href="timeline.html"  target="_blank">
-                    <img src="hourglass.png" width="480" height="480">
+                    <img src="./hourglass.png" width="480" height="480">
                 </a>
             </div>  
             <div class="right">My Resume <br><br>
-                <a href="rezzy.pdf" target="_blank">
-                    <img src="factory.jpg" width="480" height="480">
+                <a href="./rezzy.pdf" target="_blank">
+                    <img src="./factory.jpg" width="480" height="480">
                 </a>
 
             </div>
             <div class="footer">
-                <img src="home.png"alt="Home Icon" id="home">
+                <img src="./home.png"alt="Home Icon" id="home">
                 <h3>All About Ray</h3>
                 <p>Jesus Saves &nbsp;</p>
                 <a href="https://usccb.cld.bz/Catechism-of-the-Catholic-Church/27/" target="_blank">
-                <img src="spiritbig.jpg" class="shake-on-hover" width="200" height="200">
+                <img src="./spiritbig.jpg" class="shake-on-hover" width="200" height="200">
 
                 </a>
 
@@ -63,12 +63,12 @@
             </div>
             
             <div class="middle">Roman Numeral Converter<br><br>
-                <a href="roman.html" target="_blank">
-                    <img src="bustslil.jpg" alt="An example image">
+                <a href="./roman.html" target="_blank">
+                    <img src="./bustslil.jpg" alt="An example image">
                 </a>
             </div>  
             <div class="right">Roll the dice! <br><br><br>
-                <img src="dice.gif" alt="Dice Game">
+                <img src="./dice.gif" alt="Dice Game">
             </div>
             <!-- TODO FIX THE HOME ICON -->
             <div class="footer">
@@ -76,7 +76,7 @@
                 <h3>My Javascript powered pages</h3>
                 <p>Jesus Saves &nbsp;</p>
                 <a href="https://usccb.cld.bz/Catechism-of-the-Catholic-Church/27/" target="_blank">
-                <img src="spiritbig.jpg" class="shake-on-hover" width="200" height="200">
+                <img src="./spiritbig.jpg" class="shake-on-hover" width="200" height="200">
                 </a>
     
             </div>
