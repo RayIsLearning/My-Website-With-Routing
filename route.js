@@ -8,7 +8,7 @@
 
             <div class="middle">Media / Social / Art<br><br><br>
                 <div class="tooltiptext">In Progress</div>
-                <img src="string.jpg" alt="Swirly Graphic">
+                <img src="./string.jpg" alt="Swirly Graphic">
             </div> 
 
             <div id="aboutButton" class="right">About me <button id="aboutButton">About</button><br>
