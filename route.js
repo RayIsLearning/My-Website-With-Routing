@@ -1,7 +1,7 @@
     // Function to render content based on the URL
     function renderContent(url) {
         if (url === '/') {//HOME
-            document.getElementById('content').innerHTML =`
+            document.getElementById('.grid-container').innerHTML =`
             <div id="softwareButton" class="left">Software <button id="softwareButton">software</button><br>
                 <img src="./bin.png" alt="Software" id="software">
             </div>
